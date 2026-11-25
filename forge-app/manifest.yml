@@ -1,0 +1,33 @@
+modules:
+  jira:globalPage:
+    - key: jira-global-page
+      resource: main-ui-kit/entry
+      resolver:
+        function: resolver
+      render: native
+      title: Global page
+  jira:issuePanel:
+    - key: jira-issue-panel
+      resource: main-ui-kit/entry-2
+      resolver:
+        function: resolver-2
+      render: native
+      title: Issue panel
+      icon: https://developer.atlassian.com/platform/forge/images/icons/issue-panel-icon.svg
+  function:
+    - key: resolver
+      handler: jira-global-page.handler
+    - key: resolver-2
+      handler: jira-issue-panel.handler
+resources:
+  - key: main-ui-kit
+    path: src/frontend/main-ui-kit
+    entry:
+      entry: jira-global-page.jsx
+      entry-2: jira-issue-panel.jsx
+app:
+  runtime:
+    name: nodejs24.x
+    memoryMB: 256
+    architecture: arm64
+  id: ari:cloud:ecosystem::app/4d068dad-90a3-4a2e-992f-4a9af5b7ae22
